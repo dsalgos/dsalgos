@@ -3,3 +3,6 @@ build/
 
 # Ignore editor configuration
 .vscode/
+
+# Ignore generate docs
+docs/
