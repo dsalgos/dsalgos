@@ -19,7 +19,14 @@ FetchContent_Declare(
   DOWNLOAD_EXTRACT_TIMESTAMP ON
 )
 
+FetchContent_Declare(
+  ftxui
+  GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI.git
+  GIT_TAG v6.1.9
+)
+
 FetchContent_MakeAvailable(googletest)
+FetchContent_MakeAvailable(ftxui)
 
 # -------------------------------------------------------------------------- #
 #                             Package to be built                            #
@@ -31,6 +38,11 @@ add_library(dsalgos STATIC)
 target_include_directories(dsalgos PUBLIC include)
 target_sources(dsalgos PRIVATE src/dsalgos/list/linkedlist.cpp src/dsalgos/list/list.cpp)
 target_sources(dsalgos PRIVATE src/dsalgos/sorting/bubble.cpp src/dsalgos/sorting/insertion.cpp src/dsalgos/sorting/selection.cpp src/dsalgos/sorting/merge.cpp src/dsalgos/sorting/quick.cpp)
+
+# ------------------------------- Visualizer ------------------------------- #
+
+add_executable(visualizer src/visualizer/main.cpp src/visualizer/menu/menu.cpp src/visualizer/sorting/sort_visualizer.cpp)
+target_link_libraries(visualizer PRIVATE dsalgos ftxui::screen ftxui::dom ftxui::component)
 
 # -------------------------------------------------------------------------- #
 #                                    Tests                                   #
