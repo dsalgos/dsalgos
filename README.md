@@ -16,9 +16,26 @@ Apart from this `README.md` file, documentation for the entire API exposed by th
 2. **Run `doxygen`**: `doxygen Doxyfile`
 3. **View documentation**: Open up `docs/html/index.html` to view the generated documentation.
 
+## Testing
+
+The tests for this library are present in the `/tests` folder. You can compile and run them using `CMake` as follows:
+
+```bash
+cmake ..
+make
+ctest
+```
+
+The testing framework used is `Google Test`.
+
+## Current Status
+
+For now, the library is limited to the List ADT and basic sorting algorithms.
+
 ## AI Disclosure
 
-Most of the code is human-written. AI has been used to generate only the following two files:
+We have focused on defining a clear structure and writing documentation and configuration files for the project.
+Most of the implementation code is AI-written. In addition, AI has been used to generate the following two configuration files:
 
 - `.clang-format`: To describe a consistent formatting for the entire codebase
 - `Doxyfile`: To create a configuration for Doxygen
